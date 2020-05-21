@@ -8,7 +8,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .card {
-  margin: 100px 0 0 120px;
+  margin: 100px 0 0 0;
   height: 35vh;
 }
 .butterButton1 {
