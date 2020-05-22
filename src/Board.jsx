@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./index.css";
+import { BoardContext } from "./BoardContext";
 
 class Board extends Component {
   constructor() {
@@ -15,6 +16,7 @@ class Board extends Component {
       isLoggedIn: true
     };
   }
+
   buttonHandler2 = () => {
     this.setState({
       butterQuantity: this.state.butterQuantity - this.state.butterQuantity
@@ -75,12 +77,19 @@ class Board extends Component {
       eggQuantity: this.state.eggQuantity + 1
     });
   };
+  static contextType = BoardContext;
+
   render() {
+    const { brightTheme, lightMode, darkMode } = this.context;
+    const mainTheme = brightTheme ? lightMode : darkMode;
     return (
       <div>
         <div className="container">
           <div className="row">
-            <div className="col col-sm-4">
+            <div
+              className="col col-sm-4"
+              style={{ backgroundColor: mainTheme.backgroundMode }}
+            >
               <div className="card shadow mb-3 rounded" style={{ width: 300 }}>
                 <div className="card-body">
                   <h5 className="card-title text-center">
