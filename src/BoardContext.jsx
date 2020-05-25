@@ -18,11 +18,17 @@ class BoardContextProvider extends Component {
         buttonMode: "#020102"
       }
     };
+    this.chMod = this.chMod.bind(this);
   }
+  chMod = () => {
+    this.setState({
+      brightTheme: !this.state.brightTheme
+    });
+  };
   render() {
     return (
       <div>
-        <BoardContext.Provider value={{ ...this.state }}>
+        <BoardContext.Provider value={{ ...this.state, chMod: this.chMod }}>
           {this.props.children}
         </BoardContext.Provider>
       </div>

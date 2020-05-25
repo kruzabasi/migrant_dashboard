@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Board from "./Board";
 import "bootstrap/dist/css/bootstrap.min.css/";
 import BoardContextProvider from "./BoardContext";
+import ChMod from "./ChMod";
 
 class App extends Component {
   render() {
@@ -9,6 +10,7 @@ class App extends Component {
       <div>
         <BoardContextProvider>
           <Board />
+          <ChMod />
         </BoardContextProvider>
       </div>
     );
