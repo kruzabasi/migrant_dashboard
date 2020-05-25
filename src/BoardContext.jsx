@@ -18,7 +18,6 @@ class BoardContextProvider extends Component {
         buttonMode: "#020102"
       }
     };
-    this.chMod = this.chMod.bind(this);
   }
   chMod = () => {
     this.setState({
