@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./index.css";
 import { BoardContext } from "./BoardContext";
+import ChMod from "./ChMod";
 
 class Board extends Component {
   constructor() {
@@ -83,29 +84,89 @@ class Board extends Component {
     const { brightTheme, lightMode, darkMode } = this.context;
     const mainTheme = brightTheme ? lightMode : darkMode;
     return (
-      <div>
+      <div id="host" style={{ backgroundColor: mainTheme.containerBg }}>
+        <ChMod />
         <div className="container">
           <div className="row">
-            <div
-              className="col col-sm-4"
-              style={{ backgroundColor: mainTheme.backgroundMode }}
-            >
-              <div className="card shadow mb-3 rounded" style={{ width: 300 }}>
+            <div className="col col-sm-4">
+              <div
+                className="card shadow mb-3 rounded"
+                style={{
+                  width: 300,
+                  backgroundColor: mainTheme.backgroundMode,
+                  color: mainTheme.fontColor
+                }}
+              >
                 <div className="card-body">
                   <h5 className="card-title text-center">
                     The Quantity of Butter
                   </h5>
+                  <img
+                    src="http://clipart-library.com/image_gallery2/Butter-PNG.png"
+                    alt="butter"
+                  />
                   <p className="card-text text-center">
                     {this.state.butterQuantity}
                   </p>
                   <button
                     onClick={this.buttonHandler1}
                     className="butterButton1"
+                    style={{
+                      backgroundColor: mainTheme.buttonMode,
+                      color: mainTheme.fontColor
+                    }}
                   >
                     Update Quantity
                   </button>
                   <button
                     onClick={this.buttonHandler2}
+                    className="butterButton2"
+                    style={{
+                      backgroundColor: mainTheme.buttonMode,
+                      color: mainTheme.fontColor
+                    }}
+                  >
+                    Delete Value
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="col col-sm-4">
+              <div
+                className="card shadow mb-3 rounded"
+                style={{
+                  width: 300,
+                  backgroundColor: mainTheme.backgroundMode,
+                  color: mainTheme.fontColor
+                }}
+              >
+                <div className="card-body">
+                  <h5 className="card-title text-center">
+                    The Price of Butter
+                  </h5>
+                  <img
+                    src="http://clipart-library.com/image_gallery2/Butter-Free-PNG-Image.png"
+                    alt="butter"
+                  />
+                  <p className="card-text text-center">
+                    {this.state.butterPrice}
+                  </p>
+                  <button
+                    onClick={this.increasePrice}
+                    className="butterButton1"
+                    style={{
+                      backgroundColor: mainTheme.buttonMode,
+                      color: mainTheme.fontColor
+                    }}
+                  >
+                    Update Quantity
+                  </button>
+                  <button
+                    style={{
+                      backgroundColor: mainTheme.buttonMode,
+                      color: mainTheme.fontColor
+                    }}
+                    onClick={this.resetPrice}
                     className="butterButton2"
                   >
                     Delete Value
@@ -114,39 +175,43 @@ class Board extends Component {
               </div>
             </div>
             <div className="col col-sm-4">
-              <div className="card shadow mb-3 rounded" style={{ width: 300 }}>
-                <div className="card-body">
-                  <h5 className="card-title text-center">
-                    The Price of Butter
-                  </h5>
-                  <p className="card-text text-center">
-                    {this.state.butterPrice}
-                  </p>
-                  <button
-                    onClick={this.increasePrice}
-                    className="butterButton1"
-                  >
-                    Update Quantity
-                  </button>
-                  <button onClick={this.resetPrice} className="butterButton2">
-                    Delete Value
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="col col-sm-4">
-              <div className="card shadow mb-3 rounded" style={{ width: 300 }}>
+              <div
+                className="card shadow mb-3 rounded"
+                style={{
+                  width: 300,
+                  backgroundColor: mainTheme.backgroundMode,
+                  color: mainTheme.fontColor
+                }}
+              >
                 <div className="card-body">
                   <h5 className="card-title text-center">
                     The Quantity of Crates
                   </h5>
+                  <img
+                    src="http://clipart-library.com/image_gallery/21986.png"
+                    alt="crates"
+                  />
                   <p className="card-text text-center">
                     {this.state.sugarCrates}
                   </p>
-                  <button onClick={this.addCrates} className="butterButton1">
+                  <button
+                    style={{
+                      backgroundColor: mainTheme.buttonMode,
+                      color: mainTheme.fontColor
+                    }}
+                    onClick={this.addCrates}
+                    className="butterButton1"
+                  >
                     Update Quantity
                   </button>
-                  <button onClick={this.removeCrates} className="butterButton2">
+                  <button
+                    style={{
+                      backgroundColor: mainTheme.buttonMode,
+                      color: mainTheme.fontColor
+                    }}
+                    onClick={this.removeCrates}
+                    className="butterButton2"
+                  >
                     Delete Value
                   </button>
                 </div>
@@ -155,54 +220,127 @@ class Board extends Component {
           </div>
           <div className="row">
             <div className="col col-sm-4">
-              <div className="card shadow mb-3 rounded" style={{ width: 300 }}>
+              <div
+                className="card shadow mb-3 rounded"
+                style={{
+                  width: 300,
+                  backgroundColor: mainTheme.backgroundMode,
+                  color: mainTheme.fontColor
+                }}
+              >
                 <div className="card-body">
                   <h5 className="card-title text-center">
                     The Quantity of Sugar
                   </h5>
+                  <img
+                    src="http://clipart-library.com/image_gallery2/Sugar.png"
+                    alt="sugar"
+                  />
                   <p className="card-text text-center">
                     {this.state.sugarQuantity}
                   </p>
-                  <button onClick={this.updateSugar} className="butterButton1">
+                  <button
+                    style={{
+                      backgroundColor: mainTheme.buttonMode,
+                      color: mainTheme.fontColor
+                    }}
+                    onClick={this.updateSugar}
+                    className="butterButton1"
+                  >
                     Update Quantity
                   </button>
-                  <button onClick={this.deleteSugar} className="butterButton2">
+                  <button
+                    style={{
+                      backgroundColor: mainTheme.buttonMode,
+                      color: mainTheme.fontColor
+                    }}
+                    onClick={this.deleteSugar}
+                    className="butterButton2"
+                  >
                     Delete Value
                   </button>
                 </div>
               </div>
             </div>
             <div className="col col-sm-4">
-              <div className="card shadow mb-3 rounded" style={{ width: 300 }}>
+              <div
+                className="card shadow mb-3 rounded"
+                style={{
+                  width: 300,
+                  backgroundColor: mainTheme.backgroundMode,
+                  color: mainTheme.fontColor
+                }}
+              >
                 <div className="card-body">
-                  <h5 className="card-title text-center">
-                    The Quantity of Flour in grams
-                  </h5>
+                  <h5 className="card-title text-center">Gramms of Flour</h5>
+                  <img
+                    src="http://clipart-library.com/data_images/354530.png"
+                    alt="flour"
+                  />
                   <p className="card-text text-center">
                     {this.state.flourQuantity}
                   </p>
-                  <button onClick={this.updateFlour} className="butterButton1">
+                  <button
+                    style={{
+                      backgroundColor: mainTheme.buttonMode,
+                      color: mainTheme.fontColor
+                    }}
+                    onClick={this.updateFlour}
+                    className="butterButton1"
+                  >
                     Update Quantity
                   </button>
-                  <button onClick={this.deleteFlour} className="butterButton2">
+                  <button
+                    style={{
+                      backgroundColor: mainTheme.buttonMode,
+                      color: mainTheme.fontColor
+                    }}
+                    onClick={this.deleteFlour}
+                    className="butterButton2"
+                  >
                     Delete Value
                   </button>
                 </div>
               </div>
             </div>
             <div className="col col-sm-4">
-              <div className="card shadow mb-3 rounded" style={{ width: 300 }}>
+              <div
+                className="card shadow mb-3 rounded"
+                style={{
+                  width: 300,
+                  backgroundColor: mainTheme.backgroundMode,
+                  color: mainTheme.fontColor
+                }}
+              >
                 <div className="card-body">
                   <h5 className="card-title text-center">
                     The Ammount of Eggs
                   </h5>
+                  <img
+                    src="http://clipart-library.com/images_k/egg-png-transparent/egg-png-transparent-17.png"
+                    alt="eggs"
+                  />
                   <p className="card-text text-center">
                     {this.state.eggQuantity}
                   </p>
-                  <button onClick={this.updateEggs} className="butterButton1">
+                  <button
+                    style={{
+                      backgroundColor: mainTheme.buttonMode,
+                      color: mainTheme.fontColor
+                    }}
+                    onClick={this.updateEggs}
+                    className="butterButton1"
+                  >
                     Update Quantity
                   </button>
-                  <button onClick={this.deleteEggs} className="butterButton2">
+                  <button
+                    style={{
+                      backgroundColor: mainTheme.buttonMode,
+                      color: mainTheme.fontColor
+                    }}
+                    onClick={this.deleteEggs}
+                    className="butterButton2"
+                  >
                     Delete Value
                   </button>
                 </div>
